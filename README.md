@@ -38,3 +38,68 @@ This will be used by webserver.json to name your AMI and identify the ansible pl
 ```
 packer build webserver.json
 ```
+You should get an output similar to the following one
+<details><summary>packer build output</summary>
+<p>
+```
+]$ packer build webserver.json
+amazon-ebs output will be in this color.
+
+==> amazon-ebs: Prevalidating AMI Name: webserver_1551909005
+    amazon-ebs: Found Image ID: ami-0bfb4cded51a2ab3e
+==> amazon-ebs: Creating temporary keypair: packer_5c80408d-1ad6-3b57-e06f-a75bc7053184
+==> amazon-ebs: Creating temporary security group for this instance: packer_5c80409b-c9da-2f51-90cb-095a03b9a481
+==> amazon-ebs: Authorizing access to port 22 from 0.0.0.0/0 in the temporary security group...
+==> amazon-ebs: Launching a source AWS instance...
+==> amazon-ebs: Adding tags to source instance
+    amazon-ebs: Adding tag: "Name": "Packer Builder"
+    amazon-ebs: Instance ID: i-0b3edb7d2e9574849
+==> amazon-ebs: Waiting for instance (i-0b3edb7d2e9574849) to become ready...
+==> amazon-ebs: Using ssh communicator to connect: 34.245.218.28
+==> amazon-ebs: Waiting for SSH to become available...
+==> amazon-ebs: Connected to SSH!
+==> amazon-ebs: Provisioning with Ansible...
+==> amazon-ebs: Executing Ansible: ansible-playbook --extra-vars packer_build_name=amazon-ebs packer_builder_type=amazon-ebs -o IdentitiesOnly=yes -i /tmp/packer-provisioner-ansible978552682 /home/gmascolo/Programs/packer/ansible-playbooks/webserver.yml -e ansible_ssh_private_key_file=/tmp/ansible-key734980727
+    amazon-ebs:
+    amazon-ebs: PLAY [webserver] ***************************************************************
+    amazon-ebs:
+    amazon-ebs: TASK [Gathering Facts] *********************************************************
+    amazon-ebs: ok: [webserver]
+    amazon-ebs:
+    amazon-ebs: TASK [Timezone Configuration] **************************************************
+    amazon-ebs: changed: [webserver]
+    amazon-ebs:
+    amazon-ebs: TASK [Install Packages] ********************************************************
+    amazon-ebs: changed: [webserver]
+    amazon-ebs:
+    amazon-ebs: TASK [Enable Apache Web Server] ************************************************
+    amazon-ebs: changed: [webserver]
+    amazon-ebs:
+    amazon-ebs: TASK [Create index.html] *******************************************************
+    amazon-ebs: changed: [webserver]
+    amazon-ebs:
+    amazon-ebs: PLAY RECAP *********************************************************************
+    amazon-ebs: webserver                  : ok=5    changed=4    unreachable=0    failed=0
+    amazon-ebs:
+==> amazon-ebs: Stopping the source instance...
+    amazon-ebs: Stopping instance, attempt 1
+==> amazon-ebs: Waiting for the instance to stop...
+==> amazon-ebs: Creating unencrypted AMI webserver_1551909005 from instance i-0b3edb7d2e9574849
+    amazon-ebs: AMI: ami-02e1f279cf40e8873
+==> amazon-ebs: Waiting for AMI to become ready...
+==> amazon-ebs: Terminating the source AWS instance...
+==> amazon-ebs: Cleaning up any extra volumes...
+==> amazon-ebs: No volumes to clean up, skipping
+==> amazon-ebs: Deleting temporary security group...
+==> amazon-ebs: Deleting temporary keypair...
+Build 'amazon-ebs' finished.
+
+==> Builds finished. The artifacts of successful builds are:
+--> amazon-ebs: AMIs were created:
+eu-west-1: ami-02e1f279cf40e8873
+
+]$
+
+```
+</p>
+</details>

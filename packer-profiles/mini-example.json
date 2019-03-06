@@ -1,0 +1,21 @@
+{
+  "variables": {
+    "aws_profile": "{{env `AWS_PROFILE`}}",
+    "aws_region": "{{env `AWS_DEFAULT_REGION`}}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "profile": "{{user `aws_profile`}}",
+    "region": "{{user `aws_region`}}",
+    "source_ami": "ami-00e1d35b9780ad761",
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "myfirstami_{{timestamp}}"
+  }],
+  "provisioners": [
+   {
+    "type": "shell",
+    "inline": ["echo foobar | sudo bash -c 'cat - > /root/provisionedfile'"]
+   }
+  ]
+}

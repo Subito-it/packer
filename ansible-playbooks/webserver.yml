@@ -1,0 +1,39 @@
+---
+- hosts: webserver
+  become: yes
+  become_method: sudo
+  vars:
+    packages:
+     - system-lsb-core
+     - yum-utils
+     - httpd
+  tasks:
+   - name: Timezone Configuration
+     timezone:
+      name: Europe/Rome
+   - name: Install Packages
+     yum:
+      name: "{{ packages }}"
+      state: present
+      update_cache: yes
+   - name: Enable Apache Web Server
+     systemd:
+      name: httpd
+      enabled: yes
+   - name: Create index.html
+     copy:
+      content: |
+        <html>
+        <title>
+        IDI 2019
+        </title>
+        <body>
+        <center>
+        <h1>Incontro DevOps Italia 2019</h1>
+        <h2>Questo artefatto e' stato creato con Packer e Ansible.</h2>
+        </center>
+        </body>
+        </html>
+      dest: /var/www/html/index.html
+      backup: no
+      force: yes

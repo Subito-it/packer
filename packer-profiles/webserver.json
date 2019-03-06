@@ -1,0 +1,34 @@
+{
+  "variables": {
+    "aws_profile": "{{env `AWS_PROFILE`}}",
+    "aws_region": "{{env `AWS_DEFAULT_REGION`}}",
+    "packer_profile": "{{ env `PACKER_PROFILE` }}"
+  },
+  "builders": [{
+    "type": "amazon-ebs",
+    "profile": "{{user `aws_profile`}}",
+    "region": "{{user `aws_region`}}",
+    "source_ami_filter": {
+      "filters": {
+      "virtualization-type": "hvm",
+      "architecture": "x86_64",
+      "state": "available",
+      "description": "*Amazon Linux 2*Minimal*",
+      "root-device-type": "ebs",
+      "ena-support": "true"
+      },
+      "owners": ["amazon"],
+      "most_recent": true
+    },
+    "instance_type": "t2.micro",
+    "ssh_username": "ec2-user",
+    "ami_name": "{{user `packer_profile`}}_{{timestamp}}"
+  }],
+  "provisioners": [
+   {
+    "type": "ansible",
+    "playbook_file": "../ansible-playbooks/{{user `packer_profile`}}.yml",
+    "host_alias": "{{user `packer_profile`}}"
+   }
+  ]
+}

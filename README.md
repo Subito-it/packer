@@ -41,6 +41,7 @@ packer build webserver.json
 You should get an output similar to the following one
 <details><summary>packer build output</summary>
 <p>
+
 ```
 ]$ packer build webserver.json
 amazon-ebs output will be in this color.
@@ -101,5 +102,6 @@ eu-west-1: ami-02e1f279cf40e8873
 ]$
 
 ```
+
 </p>
 </details>

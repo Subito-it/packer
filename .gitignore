@@ -1,0 +1,15 @@
+*.swp
+*.out
+*.retry
+.aws/*
+**/.ssh
+**/.ssh/**
+.ssh/*
+bin/*
+.ansible/*
+.terraform
+.terraform*
+**/.terraform
+**/.terraform/**
+terraform.tfstate
+terraform.tfstate*

@@ -360,3 +360,82 @@ can't guarantee that exactly these actions will be performed if
 </p>
 </details>
   
+Finally, if you completed the above steps without errors, you can deploy an EC2 instance with the webserver AMI with
+```
+terraform apply
+```
+
+<details><summary>terraform apply output</summary>
+<p>
+
+``` 
+]$ terraform apply
+data.http.public_ip: Refreshing state...
+data.aws_ami.webserver: Refreshing state...
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+ <= data.aws_subnet_ids.default_subnets
+      id:                                        <computed>
+      ids.#:                                     <computed>
+      tags.%:                                    <computed>
+      vpc_id:                                    "${aws_default_vpc.default_vpc.id}"
+
+  + aws_default_vpc.default_vpc
+      id:                                        <computed>
+      arn:                                       <computed>
+
+... OMITTED ...
+
+  + tls_private_key.terraform-ssh-key
+      id:                                        <computed>
+      algorithm:                                 "RSA"
+      ecdsa_curve:                               "P224"
+      private_key_pem:                           <computed>
+      public_key_fingerprint_md5:                <computed>
+      public_key_openssh:                        <computed>
+      public_key_pem:                            <computed>
+      rsa_bits:                                  "2048"
+
+
+Plan: 6 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+tls_private_key.terraform-ssh-key: Creating...
+  algorithm:                  "" => "RSA"
+  ecdsa_curve:                "" => "P224"
+  private_key_pem:            "" => "<computed>"
+  public_key_fingerprint_md5: "" => "<computed>"
+  public_key_openssh:         "" => "<computed>"
+  public_key_pem:             "" => "<computed>"
+  rsa_bits:                   "" => "2048"
+tls_private_key.terraform-ssh-key: Creation complete after 0s
+
+... OMITTED ...
+
+aws_instance.web: Still creating... (10s elapsed)
+aws_instance.web: Still creating... (20s elapsed)
+aws_instance.web: Still creating... (30s elapsed)
+aws_instance.web: Creation complete after 31s
+
+Apply complete! Resources: 6 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+Public IP = X.Y.Z.K
+]$ 
+```
+
+</p>
+</details>
+  

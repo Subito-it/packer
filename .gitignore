@@ -13,3 +13,4 @@ bin/*
 **/.terraform/**
 terraform.tfstate
 terraform.tfstate*
+*.tfvars

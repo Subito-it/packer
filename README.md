@@ -444,3 +444,6 @@ Don't forget to destroy the infrastructure you just created if you do not need i
 ```
 terraform destroy
 ```
+## Links
+
+[![Packer mini example](http://i.vimeocdn.com/video/764685304_200x150.jpg)](https://vimeo.com/321868330 "Video - Packer mini-example.json")

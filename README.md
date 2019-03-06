@@ -42,7 +42,7 @@ You should get an output similar to the following one
 <details><summary>packer build output</summary>
 <p>
 
-```
+``` 
 ]$ packer build webserver.json
 amazon-ebs output will be in this color.
 

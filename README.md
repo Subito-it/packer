@@ -439,3 +439,8 @@ Public IP = X.Y.Z.K
 </p>
 </details>
   
+Terraform will output the public ip of the EC2 instance. Let's paste it in your browser and... congratulations! you have just deployed a webserver.
+Don't forget to destroy the infrastructure you just created if you do not need it anymore
+```
+terraform destroy
+```

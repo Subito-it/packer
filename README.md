@@ -105,6 +105,7 @@ eu-west-1: ami-02e1f279cf40e8873
 
 </p>
 </details>
+  
 At the end of this process (usually a few minutes) you will notice an AMI named like `webserver_1551909005` in your AWS account.
 
 ## Webserver AMI deployment
@@ -170,3 +171,192 @@ commands will detect it and remind you to do so if necessary.
 
 </p>
 </details>
+  
+Check that everything is ready for your deployment
+```
+terraform validate
+terraform plan
+```
+Terraform will show you a plan of what it wants to deploy in your AWS account
+
+<details><summary>terraform plan output</summary>
+<p>
+
+``` 
+]$ terraform validate
+]$ terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+data.http.public_ip: Refreshing state...
+data.aws_ami.webserver: Refreshing state...
+
+------------------------------------------------------------------------
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+ <= read (data resources)
+
+Terraform will perform the following actions:
+
+ <= data.aws_subnet_ids.default_subnets
+      id:                                        <computed>
+      ids.#:                                     <computed>
+      tags.%:                                    <computed>
+      vpc_id:                                    "${aws_default_vpc.default_vpc.id}"
+
+  + aws_default_vpc.default_vpc
+      id:                                        <computed>
+      arn:                                       <computed>
+      assign_generated_ipv6_cidr_block:          <computed>
+      cidr_block:                                <computed>
+      default_network_acl_id:                    <computed>
+      default_route_table_id:                    <computed>
+      default_security_group_id:                 <computed>
+      dhcp_options_id:                           <computed>
+      enable_classiclink:                        <computed>
+      enable_classiclink_dns_support:            <computed>
+      enable_dns_hostnames:                      <computed>
+      enable_dns_support:                        "true"
+      instance_tenancy:                          <computed>
+      ipv6_association_id:                       <computed>
+      ipv6_cidr_block:                           <computed>
+      main_route_table_id:                       <computed>
+      owner_id:                                  <computed>
+
+  + aws_instance.web
+      id:                                        <computed>
+      ami:                                       "ami-02e1f279cf40e8873"
+      arn:                                       <computed>
+      associate_public_ip_address:               "true"
+      availability_zone:                         <computed>
+      cpu_core_count:                            <computed>
+      cpu_threads_per_core:                      <computed>
+      ebs_block_device.#:                        <computed>
+      ephemeral_block_device.#:                  <computed>
+      get_password_data:                         "false"
+      host_id:                                   <computed>
+      instance_initiated_shutdown_behavior:      "terminate"
+      instance_state:                            <computed>
+      instance_type:                             "t2.micro"
+      ipv6_address_count:                        <computed>
+      ipv6_addresses.#:                          <computed>
+      key_name:                                  "terraform-ssh-key"
+      network_interface.#:                       <computed>
+      network_interface_id:                      <computed>
+      password_data:                             <computed>
+      placement_group:                           <computed>
+      primary_network_interface_id:              <computed>
+      private_dns:                               <computed>
+      private_ip:                                <computed>
+      public_dns:                                <computed>
+      public_ip:                                 <computed>
+      root_block_device.#:                       "1"
+      root_block_device.0.delete_on_termination: "true"
+      root_block_device.0.volume_id:             <computed>
+      root_block_device.0.volume_size:           "3"
+      root_block_device.0.volume_type:           "standard"
+      security_groups.#:                         <computed>
+      source_dest_check:                         "true"
+      subnet_id:                                 "${data.aws_subnet_ids.default_subnets.ids[0]}"
+      tags.%:                                    "1"
+      tags.Name:                                 "terraform packer deploy"
+      tenancy:                                   <computed>
+      volume_tags.%:                             <computed>
+      vpc_security_group_ids.#:                  <computed>
+
+  + aws_key_pair.terraform-ssh-key
+      id:                                        <computed>
+      fingerprint:                               <computed>
+      key_name:                                  "terraform-ssh-key"
+      public_key:                                "${tls_private_key.terraform-ssh-key.public_key_openssh}"
+
+  + aws_security_group.http_in
+      id:                                        <computed>
+      arn:                                       <computed>
+      description:                               "Allow HTTP Traffic"
+      egress.#:                                  "1"
+      egress.482069346.cidr_blocks.#:            "1"
+      egress.482069346.cidr_blocks.0:            "0.0.0.0/0"
+      egress.482069346.description:              ""
+      egress.482069346.from_port:                "0"
+      egress.482069346.ipv6_cidr_blocks.#:       "0"
+      egress.482069346.prefix_list_ids.#:        "0"
+      egress.482069346.protocol:                 "-1"
+      egress.482069346.security_groups.#:        "0"
+      egress.482069346.self:                     "false"
+      egress.482069346.to_port:                  "0"
+      ingress.#:                                 "1"
+      ingress.627927811.cidr_blocks.#:           "1"
+      ingress.627927811.cidr_blocks.0:           "REDACTED"
+      ingress.627927811.description:             ""
+      ingress.627927811.from_port:               "80"
+      ingress.627927811.ipv6_cidr_blocks.#:      "0"
+      ingress.627927811.prefix_list_ids.#:       "0"
+      ingress.627927811.protocol:                "tcp"
+      ingress.627927811.security_groups.#:       "0"
+      ingress.627927811.self:                    "false"
+      ingress.627927811.to_port:                 "80"
+      name:                                      "http_in"
+      owner_id:                                  <computed>
+      revoke_rules_on_delete:                    "false"
+      vpc_id:                                    "${aws_default_vpc.default_vpc.id}"
+
+  + aws_security_group.ssh_in
+      id:                                        <computed>
+      arn:                                       <computed>
+      description:                               "Allow SSH Traffic"
+      egress.#:                                  "1"
+      egress.482069346.cidr_blocks.#:            "1"
+      egress.482069346.cidr_blocks.0:            "0.0.0.0/0"
+      egress.482069346.description:              ""
+      egress.482069346.from_port:                "0"
+      egress.482069346.ipv6_cidr_blocks.#:       "0"
+      egress.482069346.prefix_list_ids.#:        "0"
+      egress.482069346.protocol:                 "-1"
+      egress.482069346.security_groups.#:        "0"
+      egress.482069346.self:                     "false"
+      egress.482069346.to_port:                  "0"
+      ingress.#:                                 "1"
+      ingress.2584783984.cidr_blocks.#:          "1"
+      ingress.2584783984.cidr_blocks.0:          "REDACTED"
+      ingress.2584783984.description:            ""
+      ingress.2584783984.from_port:              "22"
+      ingress.2584783984.ipv6_cidr_blocks.#:     "0"
+      ingress.2584783984.prefix_list_ids.#:      "0"
+      ingress.2584783984.protocol:               "tcp"
+      ingress.2584783984.security_groups.#:      "0"
+      ingress.2584783984.self:                   "false"
+      ingress.2584783984.to_port:                "22"
+      name:                                      "ssh_in"
+      owner_id:                                  <computed>
+      revoke_rules_on_delete:                    "false"
+      vpc_id:                                    "${aws_default_vpc.default_vpc.id}"
+
+  + tls_private_key.terraform-ssh-key
+      id:                                        <computed>
+      algorithm:                                 "RSA"
+      ecdsa_curve:                               "P224"
+      private_key_pem:                           <computed>
+      public_key_fingerprint_md5:                <computed>
+      public_key_openssh:                        <computed>
+      public_key_pem:                            <computed>
+      rsa_bits:                                  "2048"
+
+
+Plan: 6 to add, 0 to change, 0 to destroy.
+
+------------------------------------------------------------------------
+
+Note: You didn't specify an "-out" parameter to save this plan, so Terraform
+can't guarantee that exactly these actions will be performed if
+"terraform apply" is subsequently run.
+
+]$ 
+```
+
+</p>
+</details>
+  

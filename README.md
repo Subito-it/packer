@@ -105,3 +105,68 @@ eu-west-1: ami-02e1f279cf40e8873
 
 </p>
 </details>
+At the end of this process (usually a few minutes) you will notice an AMI named like `webserver_1551909005` in your AWS account.
+
+## Webserver AMI deployment
+
+Now let's deploy the AMI you just created with terraform. Change directory to terraform:
+```
+]$ cd ../terraform/
+]$ ls
+00-account.tf  01-security_groups.tf  02-ec2_instance.tf  terraform.tfvars.example
+]$
+```
+To use terraform you must set terraform variables using terraform.tfvars. Let's copy the example
+```
+cp terraform.tfvars.example terraform.tfvars
+```
+Open it with an editor and set AWS profile in a similar way as you have done for Packer, e.g.
+```
+]$ cat terraform.tfvars
+aws_region = "eu-west-1"
+aws_credentials_file = "~/.aws/credentials"
+aws_profile = "default"
+]$
+```
+Now init your terraform setup with
+```
+terraform init
+```
+<details><summary>terraform init output</summary>
+<p>
+
+``` 
+]$ terraform init
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider "aws" (2.0.0)...
+- Downloading plugin for provider "http" (1.0.1)...
+- Downloading plugin for provider "tls" (1.2.0)...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.aws: version = "~> 2.0"
+* provider.http: version = "~> 1.0"
+* provider.tls: version = "~> 1.2"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+]$ 
+```
+
+</p>
+</details>

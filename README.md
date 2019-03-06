@@ -7,11 +7,11 @@ This method was presented at [Incontro DevOps Italia 2019](https://2019.incontro
 
 ## Prerequisites
 
-You should have a working Linux, BSD or Mac installation on your computer and a valid AWS account with [AWS CLI](https://aws.amazon.com/cli/]) already installed and configured. The AWS CLI tools will not be used here but the credentials file configured on your computer will be used to access your account, deploy instances and other stuff.
+You should have a working Linux, BSD or Mac installation on your computer and a valid AWS account with [AWS CLI](https://aws.amazon.com/cli/) already installed and configured. The AWS CLI tools will not be used here but the credentials file configured on your computer will be used to access your account, deploy instances and other stuff.
 
 ## Installation
 
 Before using the code you must have installed and available in your PATH the following tools:
-- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html])
-- [Packer](https://www.packer.io/downloads.html])
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
+- [Packer](https://www.packer.io/downloads.html)
 - [Terraform](https://www.terraform.io/downloads.html)

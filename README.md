@@ -15,3 +15,26 @@ Before using the code you must have installed and available in your PATH the fol
 - [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 - [Packer](https://www.packer.io/downloads.html)
 - [Terraform](https://www.terraform.io/downloads.html)
+
+## Webserver AMI Build
+
+Change directory to packer-profiles
+```
+]$ cd packer-profiles/
+]$ ls
+mini-example.json  webserver.json
+]$
+```
+Set the following environment variables with appropriate values regarding your AWS account
+```
+export AWS_DEFAULT_REGION="eu-west-1"
+export AWS_PROFILE="default"
+```
+AWS profile must match the section name found in your ~/.aws/credentials file. If you only manage one account this is usually set to `default`. Now to build the a web server you will use webserver.json. Before doing it let's set the last environment variable used by it:
+```
+export PACKER_PROFILE="webserver"
+```
+This will be used by webserver.json to name your AMI and identify the ansible playbook to install it. Now let's build it
+```
+packer build webserver.json
+```

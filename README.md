@@ -446,6 +446,6 @@ terraform destroy
 ```
 ## Links
 
-[![Slides IDI 2019](https://lh4.googleusercontent.com/qT7NFUh275fqL9U-_2uFCUNunEIlp8jynuqzLanO-Xn2N_udn6N5MiFWe9-l5uSUd7qR40VtpyhirUAcGTllgYtt0jtwuXm4P_VR8Suq1uBoJB8y8osNzHQOejocapdykiNeZrmWT1E3UDMPckKGnHgx2YPrWYcv5GUHMDEzZoIdMixDz7RK3n-bhxqv9l4OIvMEcA=s280)](https://docs.google.com/presentation/d/1yT9Wa4O3Noi0-nTFar8TkdNbi8HhLk55TsXP8yIhafc/edit?usp=sharing "Slides IDI 2019")
-[![Packer mini example](http://i.vimeocdn.com/video/764685304_200x150.jpg)](https://vimeo.com/321868330 "Video - Packer mini-example.json")
-[![Packer webserver example](http://i.vimeocdn.com/video/764689967_200x150.jpg)](https://vimeo.com/321871067 "Video - Packer webserver.json")
+- [![Slides IDI 2019](https://lh4.googleusercontent.com/qT7NFUh275fqL9U-_2uFCUNunEIlp8jynuqzLanO-Xn2N_udn6N5MiFWe9-l5uSUd7qR40VtpyhirUAcGTllgYtt0jtwuXm4P_VR8Suq1uBoJB8y8osNzHQOejocapdykiNeZrmWT1E3UDMPckKGnHgx2YPrWYcv5GUHMDEzZoIdMixDz7RK3n-bhxqv9l4OIvMEcA=s280)](https://docs.google.com/presentation/d/1yT9Wa4O3Noi0-nTFar8TkdNbi8HhLk55TsXP8yIhafc/edit?usp=sharing "Slides IDI 2019")
+- [![Packer mini example](http://i.vimeocdn.com/video/764685304_200x150.jpg)](https://vimeo.com/321868330 "Video - Packer mini-example.json")
+- [![Packer webserver example](http://i.vimeocdn.com/video/764689967_200x150.jpg)](https://vimeo.com/321871067 "Video - Packer webserver.json")

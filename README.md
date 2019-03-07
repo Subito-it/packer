@@ -2,8 +2,8 @@
 
 ## Abstract
 
-This repo contains some examples about using Packer to build AMI in AWS. It is intended as an introductive guide to create a repeatable an predictable process to deploy your artifacts with EC2 instances.  
-This method was presented at [Incontro DevOps Italia 2019](https://2019.incontrodevops.it/talks.html#gianluca-mascolo) (Italian DevOps Gathering 2019).
+This repo contains some examples about using Packer illustrateds during [Incontro DevOps Italia 2019](https://2019.incontrodevops.it/talks.html#gianluca-mascolo) 
+It is intended as an introductive guide to create a repeatable an predictable process to deploy your artifacts with EC2 instances.
 
 ## Prerequisites
 

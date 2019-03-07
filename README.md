@@ -446,7 +446,7 @@ terraform destroy
 ```
 ## Links
 
-[![Slides IDI 2019](https://drive.google.com/file/d/1NUMbLdIp4tvpWL_wP_AtaJ2bzxzV3Vhr/view?usp=sharing)](https://docs.google.com/presentation/d/1yT9Wa4O3Noi0-nTFar8TkdNbi8HhLk55TsXP8yIhafc/edit?usp=sharing "Slides IDI 2019")  
+[![slide-thumb](https://user-images.githubusercontent.com/20320073/53964724-25156a80-40f0-11e9-9926-3d72d646fdc2.png)(https://docs.google.com/presentation/d/1yT9Wa4O3Noi0-nTFar8TkdNbi8HhLk55TsXP8yIhafc/edit?usp=sharing "Slides IDI 2019")  
 [![Packer mini example](http://i.vimeocdn.com/video/764685304_200x150.jpg)](https://vimeo.com/321868330 "Video - Packer mini-example.json")  
 [![Packer webserver example](http://i.vimeocdn.com/video/764689967_200x150.jpg)](https://vimeo.com/321871067 "Video - Packer webserver.json")  
 

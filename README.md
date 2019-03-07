@@ -12,9 +12,9 @@ You should have a working Linux, BSD or Mac installation on your computer and a 
 ## Installation
 
 Before using the code you must have installed and available in your PATH the following tools:
-- [Packer](https://www.packer.io/downloads.html)
-- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
-- [Terraform](https://www.terraform.io/downloads.html)
+- [Packer](https://www.packer.io/downloads.html){:target="_blank" rel="noopener"}
+- [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html){:target="_blank" rel="noopener"}
+- [Terraform](https://www.terraform.io/downloads.html){:target="_blank" rel="noopener"}
 
 ## Webserver AMI Build
 
